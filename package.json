@@ -1,5 +1,5 @@
 {
-  "name": "dependency-resolver-js",
+  "name": "javascript-dependency-resolver",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {

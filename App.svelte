@@ -1,6 +1,8 @@
 <script>
-  // import Button from "./Button.svelte";
   import resolve from "./dep-resolution";
+  import { resolution } from "./store.js";
+  import DependencyList from "./DependencyList.svelte";
+  import ExecutionOrder from "./ExecutionOrder.svelte";
   import "./styles.css";
   const before_container = document.querySelector("#before .dependency-list");
   const after_container = document.querySelector("#after .dependency-list");
@@ -27,19 +29,20 @@
   // }
 
   // After resolution
-  const execution_order = resolve(subscribers);
+  // const execution_order = resolve(subscribers);
+  // const resolution = resolve(subscribers);
   // execution_order.forEach(function (name) {
   //   console.log(name);
   // });
   // });
 
-  before_container.innerHTML = `
-  <pre>${JSON.stringify(subscribers, null, 2)}</pre>
-  `;
+  // before_container.innerHTML = `
+  //                 <pre>${JSON.stringify(subscribers, null, 2)}</pre>
+  //                 `;
 
-  after_container.innerHTML = `
-  <pre>${JSON.stringify(execution_order, null, 2)}</pre>
-  `;
+  // after_container.innerHTML = `
+  //                 <pre>${JSON.stringify(execution_order, null, 2)}</pre>
+  //                 `;
 
   /**
    * - Create nested LI that supports infinite levels of nesting
@@ -64,9 +67,6 @@
    */
 </script>
 
-<style>
-</style>
-
 
 <h1 style="text-align: center;">Resolve Dependencies w/ JavaScript</h1>
 <div id="app">
@@ -80,6 +80,7 @@
       >
     </p>
     <div class="dependency-list"></div>
+    <DependencyList />
   </div>
 
   <div id="after">
@@ -91,5 +92,6 @@
       >
     </p>
     <div class="dependency-list"></div>
+    <ExecutionOrder/>
   </div>
 </div>
